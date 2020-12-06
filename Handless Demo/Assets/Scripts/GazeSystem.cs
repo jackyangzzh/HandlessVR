@@ -6,9 +6,13 @@ public class GazeSystem : MonoBehaviour
 {
     [SerializeField] GameObject reticle;
 
-    private Color inactiveColor = Color.gray;
-    private Color activeColor = Color.green;
+    [SerializeField] Color inactiveColor = Color.gray;
+    [SerializeField] Color activeColor = Color.green;
+
     private GazableObject currentGazeObject;
+    private GazableObject currentSelectedObject;
+
+    private RaycastHit lastHit;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +24,8 @@ public class GazeSystem : MonoBehaviour
     void Update()
     {
         ProcessGaze();
+        CheckForInput(lastHit);
+
     }
 
     public void ProcessGaze(){
@@ -49,6 +55,8 @@ public class GazeSystem : MonoBehaviour
         }else{
             ClearCurrentObject();
         }
+
+        lastHit = hitInfo;
     }
 
     private void SetReticleColor(Color reticleColor){
@@ -56,7 +64,19 @@ public class GazeSystem : MonoBehaviour
     }
 
     private void CheckForInput(RaycastHit hitInfo){
-        
+        if(Input.GetMouseButtonDown(0) && currentGazeObject != null){
+            currentSelectedObject = currentGazeObject;
+            currentSelectedObject.OnPress(hitInfo);
+        }
+        else if(Input.GetMouseButton(0) && currentSelectedObject != null){
+            currentSelectedObject.OnHold(hitInfo);
+        }
+        else if(Input.GetMouseButtonUp(0) && currentSelectedObject != null){
+            currentSelectedObject.OnRelease(hitInfo);
+            currentSelectedObject = null;
+        }
+
+    
     }
 
     private void ClearCurrentObject(){

@@ -24,7 +24,7 @@ public class GazableObject : MonoBehaviour
 
     }
 
-    public virtual void OnRelease(){
+    public virtual void OnRelease(RaycastHit hitInfo){
         
     }
 }
