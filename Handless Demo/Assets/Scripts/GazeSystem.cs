@@ -26,4 +26,12 @@ public class GazeSystem : MonoBehaviour
 
         }
     }
+
+    private void SetReticleColor(Color reticleColor){
+
+    }
+
+    private void CheckForInput(RaycastHit hitInfo){
+        
+    }
 }
