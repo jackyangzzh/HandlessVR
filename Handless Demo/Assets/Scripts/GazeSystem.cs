@@ -25,7 +25,6 @@ public class GazeSystem : MonoBehaviour
     {
         ProcessGaze();
         CheckForInput(lastHit);
-
     }
 
     public void ProcessGaze(){
@@ -46,8 +45,9 @@ public class GazeSystem : MonoBehaviour
                     currentGazeObject.OnGazeEnter(hitInfo);
                     SetReticleColor(activeColor);
                 }else{
-                    ClearCurrentObject();
+                    currentGazeObject.OnGaze(hitInfo);
                 }
+                lastHit = hitInfo;
             }
             else{
                 currentGazeObject.OnGaze(hitInfo);
