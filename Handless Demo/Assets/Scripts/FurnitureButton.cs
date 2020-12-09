@@ -9,7 +9,11 @@ public class FurnitureButton : GazableButton
     public override void OnPress(RaycastHit hitInfo)
     {
         base.OnPress(hitInfo);
+
+        VRPlayer.instance.activeMode = InputMode.Furniture;
+
+        VRPlayer.instance.activeFurniturePrefab = prefab;
     }
 
-    
+
 }

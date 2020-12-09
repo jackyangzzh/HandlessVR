@@ -7,7 +7,11 @@ public enum InputMode
     None,
     Teleport,
     Walk,
-    Float
+    Float,
+    Furniture,
+    Translate,
+    Rotate,
+    Scale
 }
 
 public class VRPlayer : MonoBehaviour
@@ -15,6 +19,7 @@ public class VRPlayer : MonoBehaviour
 
     public static VRPlayer instance;
     public InputMode activeMode = InputMode.None;
+    public Object activeFurniturePrefab;
 
     [SerializeField] float playerSpeed = 2.0f;
 

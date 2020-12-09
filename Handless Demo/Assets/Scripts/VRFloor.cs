@@ -16,6 +16,12 @@ public class VRFloor : GazableObject
 
             VRPlayer.instance.transform.position = destLocation;
         }
+        else if (VRPlayer.instance.activeMode == InputMode.Furniture)
+        {
+            GameObject placedFurniture = GameObject.Instantiate(VRPlayer.instance.activeFurniturePrefab) as GameObject;
+            placedFurniture.transform.position = hitInfo.point;
+            
+        }
 
     }
 }
