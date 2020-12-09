@@ -27,64 +27,74 @@ public class GazeSystem : MonoBehaviour
         CheckForInput(lastHit);
     }
 
-    public void ProcessGaze(){
+    public void ProcessGaze()
+    {
         Ray ray = new Ray(transform.position, transform.forward);
         RaycastHit hitInfo;
 
         Debug.DrawRay(ray.origin, ray.direction * 100);
 
-        if(Physics.Raycast(ray, out hitInfo)){
+        if (Physics.Raycast(ray, out hitInfo))
+        {
 
             GameObject hitObj = hitInfo.collider.gameObject;
             GazableObject gazeObj = hitObj.GetComponentInParent<GazableObject>();
 
-            if(gazeObj != null){
-                if(gazeObj != currentGazeObject){
+            if (gazeObj != null)
+            {
+                if (gazeObj != currentGazeObject)
+                {
                     ClearCurrentObject();
                     currentGazeObject = gazeObj;
                     currentGazeObject.OnGazeEnter(hitInfo);
                     SetReticleColor(activeColor);
-                }else{
+                }
+                else
+                {
                     currentGazeObject.OnGaze(hitInfo);
                 }
                 lastHit = hitInfo;
             }
-            else{
-                currentGazeObject.OnGaze(hitInfo);
+            else
+            {
+                 ClearCurrentObject();
             }
-        }else{
-            ClearCurrentObject();
         }
-
-        lastHit = hitInfo;
     }
 
-    private void SetReticleColor(Color reticleColor){
+    private void SetReticleColor(Color reticleColor)
+    {
         reticle.GetComponent<Renderer>().material.SetColor("_Color", reticleColor);
     }
 
-    private void CheckForInput(RaycastHit hitInfo){
-        if(Input.GetMouseButtonDown(0) && currentGazeObject != null){
+    private void CheckForInput(RaycastHit hitInfo)
+    {
+        if (Input.GetMouseButtonDown(0) && currentGazeObject != null)
+        {
             currentSelectedObject = currentGazeObject;
             currentSelectedObject.OnPress(hitInfo);
         }
-        else if(Input.GetMouseButton(0) && currentSelectedObject != null){
+        else if (Input.GetMouseButton(0) && currentSelectedObject != null)
+        {
             currentSelectedObject.OnHold(hitInfo);
         }
-        else if(Input.GetMouseButtonUp(0) && currentSelectedObject != null){
+        else if (Input.GetMouseButtonUp(0) && currentSelectedObject != null)
+        {
             currentSelectedObject.OnRelease(hitInfo);
             currentSelectedObject = null;
         }
 
-    
+
     }
 
-    private void ClearCurrentObject(){
-        if(currentGazeObject != null){
+    private void ClearCurrentObject()
+    {
+        if (currentGazeObject != null)
+        {
             currentGazeObject.OnGazeExit();
             SetReticleColor(inactiveColor);
             currentGazeObject = null;
         }
     }
-    
+
 }
