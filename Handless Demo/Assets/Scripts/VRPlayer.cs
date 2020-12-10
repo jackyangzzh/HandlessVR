@@ -11,7 +11,8 @@ public enum InputMode
     Furniture,
     Translate,
     Rotate,
-    Scale
+    Scale,
+    Drag
 }
 
 public class VRPlayer : MonoBehaviour

@@ -119,7 +119,6 @@ public class GazableObject : MonoBehaviour
                 rotationDelta.x = 360.0f + rotationDelta.x;
             }
             updownRotation = initialObjectRotation.x - (rotationDelta.x * rotationSpeed);
-            Debug.Log(rotationDelta.x);
         }
 
         Vector3 newRotation = new Vector3(updownRotation, initialObjectRotation.y + (rotationDelta.y * rotationSpeed), 0);
