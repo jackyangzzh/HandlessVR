@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1023622057671534206}
   - component: {fileID: 2775379793398777855}
   - component: {fileID: 1140831406033264962}
+  - component: {fileID: 4108626628214702585}
   m_Layer: 0
   m_Name: Canisters_03_pf
   m_TagString: Untagged
@@ -114,3 +115,16 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -1139881712111977864, guid: 335699bd75c941c4fa2daa9d52fc87d7, type: 3}
+--- !u!114 &4108626628214702585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 871074616176278674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e9cc3437677440cba0328006a2cc005, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transformable: 1

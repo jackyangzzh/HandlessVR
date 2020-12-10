@@ -405,6 +405,7 @@ GameObject:
   m_Component:
   - component: {fileID: 400010}
   - component: {fileID: 624977774234680636}
+  - component: {fileID: 492160020282836953}
   m_Layer: 0
   m_Name: modular_kitchen_table_4_INV
   m_TagString: Untagged
@@ -449,6 +450,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transformable: 1
+--- !u!65 &492160020282836953
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100010}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5455835, y: 1.0592458, z: 0.82536954}
+  m_Center: {x: 0.08237244, y: 0.029622912, z: 0.46375638}
 --- !u!1 &100012
 GameObject:
   m_ObjectHideFlags: 0
