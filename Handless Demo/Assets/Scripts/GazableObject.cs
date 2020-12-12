@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using AssetStore;
 
 public class GazableObject : MonoBehaviour
 {
@@ -14,9 +15,23 @@ public class GazableObject : MonoBehaviour
     private Vector3 initialPlayerRotation;
     private Vector3 initialObjectScale;
 
+    private void Start()
+    {
+        if (GetComponent<Outline>())
+        {
+            GetComponent<Outline>().enabled = false;
+        }
+
+
+    }
+
     public virtual void OnGazeEnter(RaycastHit hitInfo)
     {
         // Debug.Log("On gaze enter " + gameObject.name);
+        if (GetComponent<Outline>() && transformable && (VRPlayer.instance.activeMode == InputMode.Translate || VRPlayer.instance.activeMode == InputMode.Rotate || VRPlayer.instance.activeMode == InputMode.Scale))
+        {
+            GetComponent<Outline>().enabled = true;
+        }
     }
 
     public virtual void OnGaze(RaycastHit hitInfo)
@@ -27,6 +42,12 @@ public class GazableObject : MonoBehaviour
     public virtual void OnGazeExit()
     {
         // Debug.Log("On gaze exit " + gameObject.name);
+
+        if (GetComponent<Outline>())
+        {
+            GetComponent<Outline>().enabled = false;
+        };
+
     }
 
     public virtual void OnPress(RaycastHit hitInfo)
