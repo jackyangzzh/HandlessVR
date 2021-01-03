@@ -16,6 +16,18 @@ The setting of the VR experience is in an apartment somewhere in space. I chose 
 ## Features ## 
 As mentioned previously, this project is an experiment to interact as little with hands as possible. Here are some demonstrations of features.
 
-![Gaze System](\Docs\gazesystem.gif) 
+**Gaze System**
 
+![Gaze System](Docs/gazesystem.gif) 
 
+**Different Locomotions**
+
+![Locomotions](Docs/locomotions.gif)
+
+**Transform Mechanics**
+
+![Transforms](Docs/transforms.gif)
+
+**Wayfinding with Minimap**
+
+![Transforms](Docs/wayfinding.gif)
